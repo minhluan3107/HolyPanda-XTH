@@ -1,0 +1,32 @@
+<div xmlns:th="http://www.thymeleaf.org">
+	<main class="card">
+		<div class="hot-product-wrap">
+			<h2 class="header-prd">Sản phẩm nổi bật</h2>
+			<div class="slide-prd">
+				<div th:each="p:${items}" class="product">
+					<div class="img">
+						<a th:href="@{|/product/detail/${p.id}|}"><img
+							th:src="@{|/assets/images/${p.image}|}" class="img-fluid"></a>
+					</div>
+					<div class="info">
+						<p class="name">
+							<a th:utext=${p.name}></a>
+						</p>
+						<p class="vote">
+							<span><i style="color: yellow;" class="fas fa-star"></i></span> <span><i
+								style="color: yellow;" class="fas fa-star"></i></span> <span><i
+								style="color: yellow;" class="fas fa-star"></i></span> <span><i
+								style="color: yellow;" class="fas fa-star"></i></span> <span><i
+								class="fas fa-star"></i></span>
+						</p>
+						<p class="price">
+						<p class="price">
+							<span>$[[${p.price}]]</span> VNĐ
+						</p>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+</div>

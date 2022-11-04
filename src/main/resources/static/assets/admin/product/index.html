@@ -1,0 +1,28 @@
+<div class="app-content content">
+	<div class="content-wrapper">
+		<div class="content-header row"></div>
+		<div class="content-body">
+			<!-- Chart -->
+			<div style="padding-top: 15px;" class="row">
+				<div class="card bg-white">
+					<ul style="padding: 10px;" class="nav nav-tabs">
+						<li><a data-toggle="tab" data-target="#edit" href="">Product
+								Edition</a></li>
+						<li style="padding-left: 10px" class="active"><a
+							data-toggle="tab" data-target="#list" href="">List of
+								Products</a></li>
+					</ul>
+					<div class="tab-content">
+						<div id="edit" class="tab-pane fade">
+							<div ng-include="'/assets/admin/product/_form.html'"></div>
+						</div>
+						<div id="list" class="tab-pane fade in active">
+							<div ng-include="'/assets/admin/product/_table.html'"></div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>

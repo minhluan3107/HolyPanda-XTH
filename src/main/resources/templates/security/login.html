@@ -1,0 +1,51 @@
+<div xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/index :: dynamic(~{::main})}">
+
+	<main>
+		<form style="margin-left: 150px" th:action="@{/security/login}"
+			method="post" class="col-sm-8 col-sm-offset">
+			<div class="panel panel-primary">
+				<div class="container">
+					<div class="row">
+						<div
+							class="col-md-6 col-xs-12 wrapbox-account wrapbox-heading-account">
+							<div class="header-page">
+								<h1>Đăng nhập</h1>
+							</div>
+						</div>
+
+						<div
+							class="col-md-6 col-xs-9 wrapbox-account wrapbox-content-account">
+							<div class="user-box login-box">
+								<div class="user-input">
+									<input required="" type="text" value="" name="username"
+										id="user-email" placeholder="Tên đăng nhập">
+								</div>
+								<div class="user-input">
+									<input required="" type="password" value="" name="password"
+										id="user-password" placeholder="Mật khẩu" size="16">
+								</div>
+								<div class="user-action">
+									<div class="login-btn-wrap button dark">
+										<input class="btn btn-login" type="submit" value="Đăng nhập">
+									</div>
+								</div>
+								<br>
+								<div class="link-login">
+									<a th:href="@{/security/login/forgotpassform}">Quên mật khẩu ?</a> hoặc <a
+										th:href="@{/security/login/registerform}" title="Đăng ký">Đăng ký</a>
+								</div>
+								<div class="link-login">
+									<a th:href="@{/security/login/changepassform}">Đổi mật khẩu</a>
+								</div>
+								<hr>
+								<hr>
+								<p style="text-align: center; color: red;" th:text="${message}"></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</main>
+</div>

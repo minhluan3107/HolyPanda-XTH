@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/index :: dynamic(~{::main})}">
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<main class="card">
+		<div class="product-wrap container">
+			<div class="list-product">
+				<div class="d-flex justify-content-between box-title">
+					<h2 class="header-prod">SẢN PHẨM</h2>
+					<p class="see-all">
+						<a th:href="@{/}"> Xem tất cả </a>
+					</p>
+				</div>
+				<div class="box-product">
+					<div class="row">
+						<div th:each="p:${items}" class="col-lg-3 col-sm-6">
+							<div class="product">
+								<div class="img">
+									<a th:href="@{|/product/detail/${p.id}|}"><img
+										th:src="@{|/assets/images/${p.image}|}" alt="Product"
+										class="img-fluid"></a>
+								</div>
+								<div class="info">
+									<p class="name">
+										<a th:utext=${p.name}></a>
+									</p>
+									<p style="color: yellow;" class="vote">
+										<span><i class="fas fa-star"></i></span> <span><i
+											class="fas fa-star"></i></span> <span><i class="fas fa-star"></i></span>
+										<span><i class="fas fa-star"></i></span> <span><i
+											class="fas fa-star"></i></span>
+									</p>
+									<p class="price">
+										<span>$[[${p.price}]]</span> VNĐ
+									</p>
+								</div>
+								<div style="text-align: center; font-size: 20px;">
+									<a style="color: black;"> <i
+										th:attr="ng-click=@{|cart.add(${p.id})|}"
+										class="cart-icon fas fa-shopping-cart"></i>
+									</a> <a style="color: red;" href="search.html"> <i
+										class="fas fa-heart"></i>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div style="padding-bottom: 15px;" class="panel-footer text-center">
+					<div class="btn-group btn-group-sm">
+						<button ng-click="pager.first()" class="btn btn-danger">
+							<b class="la la-fast-backward">F</b>
+						</button>
+						<button ng-click="pager.prev()" class="btn btn-primary">
+							<b class="la la-backward">P</b>
+						</button>
+						<button class="btn btn-success">{{pager.page + 1}} of
+							{{pager.count}}</button>
+						<button ng-click="pager.next()" class="btn btn-primary">
+							<b class="la la-forward">N</b>
+						</button>
+						<button ng-click="pager.last()" class="btn btn-danger">
+							<b class="la la-fast-forward">L</b>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+</body>
+</html>

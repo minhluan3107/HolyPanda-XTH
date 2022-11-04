@@ -1,0 +1,81 @@
+
+<div xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/index :: dynamic(~{::main})}">
+	<main th:object="${item}" class="card">
+		<div class="container">
+			<div class="breadcumb">
+				<div class="d-flex align-items-center">
+					<p>
+						<a href="#">Trang chủ </a>
+					</p>
+					<span> <i class="fas fa-angle-right"></i>
+					</span>
+					<p>
+						<a href="#">SẢN PHẨM</a>
+					</p>
+					<span> <i class="fas fa-angle-right"></i>
+					</span>
+					<p>
+						<a href="#"> Chi tiết sản phẩm</a>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="product-detail">
+				<h1 th:text="*{name}"></h1>
+				<div class="row mb-4">
+					<div class="col-lg-8">
+						<div class="w3-container">
+							<div class="w3-content">
+								<img class="mySlides" th:src="@{|/assets/images/*{image}|}"
+									style="width: 70%;">
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4">
+						<div class="price">
+							<h4>Giá cũ:</h4>
+							<p style="color: red;" class="old" th:text="*{price}"></p>
+							<h4>Giá mới:</h4>
+							<p style="color: blue;" class="new" th:text="*{price}"></p>
+							<h4>Ngày tạo sản phẩm:</h4>
+							<p class="card-text" th:text="*{createDate}"></p>
+							<h4>Danh mục:</h4>
+							<p class="card-text" th:text="*{category.name}"></p>
+						</div>
+						<div class="certify d-flex align-items-center">
+							<i class="fas fa-shield-alt mr-2"></i>
+							<p>Bảo hành sản phẩm lên đến 12 tháng</p>
+						</div>
+					</div>
+				</div>
+				<div class="detail-info">
+					<nav class="d-flex">
+						<div class="nav nav-tabs" id="nav-tab" role="tablist">
+							<a class="nav-link" id="nav-bh-tab" data-toggle="tab"
+								href="#nav-bh" role="tab" aria-controls="nav-bht"
+								aria-selected="false">Bảo hành</a> <a class="nav-link"
+								id="nav-ck-tab" data-toggle="tab" href="#nav-ck" role="tab"
+								aria-controls="nav-ck" aria-selected="false">Cam kết</a>
+						</div>
+					</nav>
+					<div class="tab-content" id="nav-tabContent">
+						<div class="tab-pane fade" id="nav-bh" role="tabpanel"
+							aria-labelledby="nav-bh-tab">
+							<p>Bảo hành sản phẩm lên đến 12 tháng</p>
+						</div>
+						<div class="tab-pane fade" id="nav-ck" role="tabpanel"
+							aria-labelledby="nav-ck-tab">
+							<p>Cam kết đổi trả trong 7 ngày</p>
+
+							<p>Lắp ráp miễn phí</p>
+
+							<p>Tư vấn nhiệt tình</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+</div>

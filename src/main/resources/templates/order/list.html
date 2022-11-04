@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/index :: dynamic(~{::main})}">
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<main>
+		<div class="panel panel-primary">
+			<div
+				style="text-align: center; margin: 20px; font-size: 30px; font-family: fantasy;"
+				class="panel-heading">YOUR ODER</div>
+
+			<table style="text-align: center; margin: 50px" class="table">
+				<thead>
+					<tr style="font-variant: small-caps; font-size: 20px">
+						<th>No.</th>
+						<th>Order No.</th>
+						<th>Order Date</th>
+						<th>Shipping Address</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="order, state:${orders}">
+						<td>[[${state.index}]]</td>
+						<td>[[${order.id}]]</td>
+						<td>[[${order.createDate}]]</td>
+						<td>[[${order.address}]]</td>
+						<td><a th:href="@{|/order/detail/${order.id}|}"
+							class="btn btn-default"> <b
+								class="glyphicon glyphicon-search"></b></a></td>
+					</tr>
+				</tbody>
+
+			</table>
+
+		</div>
+
+
+	</main>
+
+</body>
+</html>

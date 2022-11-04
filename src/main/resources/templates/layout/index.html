@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:fragment="dynamic(main)">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<!-- Slick -->
+<link rel="stylesheet" type="text/css"
+	href="/assets/slick/slick/slick.css" />
+<link rel="stylesheet" type="text/css"
+	href="/assets/slick/slick/slick-theme.css" />
+<!-- CSS -->
+<link rel="stylesheet" type="text/css" href="/assets/css/global.css">
+<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+<link rel="stylesheet" type="text/css" href="/assets/css/responsive.css">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+	integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.0.10/css/all.css"
+	integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg"
+	crossorigin="anonymous">
+<link rel="icon" href="/assets/images/AnhCat/logopandateam.jpg"
+	type="image/png">
+<title>CỦA HÀNG NỘI THẤT H-FURNITURE</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body class="" ng-app="shopping-cart-app"
+	ng-controller="shopping-cart-ctrl">
+	<div id="main-content" class="wrap">
+		<!-- MENU $ HEADER -->
+		<div th:replace="/layout/_menu.html"></div>
+		<!-- BANNER -->
+		<div th:replace="/layout/_baner.html"></div>
+		<!-- CATEGORY -->
+		<div th:replace="/layout/_category.html"></div>
+		<!-- MAIN -->
+		<div th:replace="${main}"></div>
+		<!-- HOT PRODUCT -->
+		<div th:replace="/layout/_hot-product.html"></div>
+		<!-- ABOUT US -->
+		<div th:replace="/layout/_about-us.html"></div>
+		<!-- NEWS -->
+		<div th:replace="/layout/_news.html"></div>
+		<!-- PARTNER -->
+		<div th:replace="/layout/_partner.html"></div>
+		<!-- CONTACT -->
+		<div th:replace="/layout/_contact.html"></div>
+		<!-- FOOTER -->
+		<div th:replace="/layout/_footer"></div>
+	</div>
+	<script type="text/javascript" src="/assets/js/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="/assets/slick/slick/slick.js"></script>
+	<script src="/assets/js/shoppinng-cart-app.js"></script>
+	<script type="text/javascript" src="/assets/js/javascript.js"></script>
+	<script>
+		window.onscroll = function() {
+			myFunction()
+		};
+		var navbar = document.getElementById("navbar");
+		// var content = document.getElementById("content");
+		var banner = document.getElementById("banner");
+		var sticky = 350;
+
+		function myFunction() {
+			if (window.pageYOffset >= sticky) {
+				navbar.classList.add("sticky");
+				// content.classList.add("sticky2");
+				banner.classList.add("sticky2");
+			} else {
+				navbar.classList.remove("sticky");
+				// content.classList.remove("sticky2");
+				banner.classList.remove("sticky2");
+			}
+		}
+	</script>
+	<script src="/assets/js/popper.min.js"></script>
+	<script src="/assets/js/bootstrap.min.js"></script>
+	<script src="/assets/js/shoppinng-cart-app.js"></script>
+	<script src="/assets/admin/product/product-ctrl.js"></script>
+</body>
+</html>

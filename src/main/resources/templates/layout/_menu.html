@@ -1,0 +1,44 @@
+<div xmlns:th="http://www.thymeleaf.org">
+	<header class="">
+		<nav class="container">
+			<div style="text-align: center; margin-left: -100px" class="logo">
+				<a th:href="@{/}"><img
+					src="/assets/images/AnhCat/logopandateam2.jpg"
+					alt="CỬA HÀNG NỘI THẤT H-FURNITURE"></a>
+			</div>
+			<div class="menu" style="text-align: center;" data-show="0">
+				<div style="font-size: 13px;"
+					class="d-flex h-100 justify-content-center align-items-center">
+					<ul>
+						<li class="active"><a th:href="@{/}"> Trang chủ </a></li>
+						<li><a th:href="@{/}"> Giới thiệu </a></li>
+						<li><a th:href="@{/}"> Sản phẩm </a></li>
+						<li><a th:href="@{/}"> Liên hệ </a></li>
+
+						<th:block th:if="${#request.remoteUser}">
+							<li><a th:href="@{/security/logoff}">ĐĂNG XUẤT</a></li>
+							<li><a th:href="@{/order/list}">ĐƠN HÀNG</a></li>
+							<li
+								th:if="${#request.isUserInRole('DIRE')or #request.isUserInRole('STAF')}">
+								<a th:href="@{/admin/home/index}">QUẢN LÍ</a>
+							</li>
+						</th:block>
+						<th:block th:unless="${#request.remoteUser}">
+							<li><a th:href="@{/security/login/form}">ĐĂNG NHẬP</a></li>
+						</th:block>
+						<li><a href="/cart/view">GIỎ HÀNG</a><a
+							style="background-color: black; color: white; margin-left: 10px">{{cart.count}}</a></li>
+					</ul>
+					<ul style="font-size: 8px;" th:if="${#request.remoteUser}">
+						<li><a href="#">Chào bạn: [[${#request.remoteUser}]]</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="d-flex align-items-center d-block d-lg-none">
+				<button class="res-menu d-block d-lg-none">
+					<span></span> <span></span> <span></span>
+				</button>
+			</div>
+		</nav>
+	</header>
+</div>
