@@ -25,7 +25,6 @@ public class Account implements Serializable{
 	String password;
 	String fullname;
 	String email;
-	String photo;
 	
 	@JsonIgnore
 	@OneToMany(mappedBy = "account", cascade = CascadeType.ALL)

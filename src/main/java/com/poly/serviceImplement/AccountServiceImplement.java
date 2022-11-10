@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.poly.entity.Account;
+import com.poly.entity.Product;
 import com.poly.repository.AccountRepository;
 import com.poly.service.AccountService;
 
@@ -29,4 +30,5 @@ public class AccountServiceImplement implements AccountService{
 	public List<Account> findAll() {
 		return accountDAO.findAll();
 	}
+
 }

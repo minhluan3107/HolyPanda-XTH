@@ -21,7 +21,7 @@
 			th:fragment="shopping_cart">
 			<div class="container">
 				<div class="checkout row">
-					<div class="checkout-content checkout-left-content col-lg-6 ">
+					<div class="checkout-content checkout-left-content col-lg-5 ">
 						<div class="checkout-header">
 							<h2 class="checkout-title">Thông tin giao hàng</h2>
 						</div>
@@ -34,13 +34,13 @@
 							<div class="fieldset">
 								<div class="container">
 									<div class="row">
-										<div class="field-wrap col-md-8 px-0">
+										<div class="field-wrap col-md-7 px-0">
 											<!-- The label -->
 											<h6>Tên tài khoản:</h6>
 											<div class="form-control" id="username">[[${#request.remoteUser}]]</div>
 										</div>
 
-										<div class="field-wrap col-md-4 pr-0">
+										<div class="field-wrap col-md-5 pr-0">
 											<!-- The input -->
 											<h6>Ngày tạo:</h6>
 											<div class="form-control" id="name">{{order.createDate
@@ -66,7 +66,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="checkout-content checkout-right-content col-lg-6">
+					<div class="checkout-content checkout-right-content col-lg-7">
 						<div class="order-section">
 							<div class="order-prd-list order-content">
 								<div class="checkout-header">
@@ -98,19 +98,20 @@
 													class="btn btn-sm btn-danger">XÓA</button>
 											</td>
 										</tr>
-
 									</tbody>
 								</table>
 							</div>
-							<div class="order-total order-content">
+							<div class="price-total">
 								<table class="total-table w-100">
 									<tfoot class="total-table-footer">
 										<tr class="total">
 											<td class="total-name payment-due-label"><span
-												class="payment-due-label-total">Tổng cộng</span></td>
-											<td class="total-name payment-due"><span
-												class="payment-due-currency">VND</span> <span
-												class="payment-due-price"> 300,000 </span></td>
+												class="payment-due-label-total">Tổng cộng</span>
+												</td>
+											<td class="price-total">
+											<span class="payment-due-currency">VND</span>
+											<span class="payment-due-currency">0</span>
+											</td>
 										</tr>
 									</tfoot>
 								</table>

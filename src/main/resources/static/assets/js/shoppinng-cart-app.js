@@ -1,5 +1,4 @@
 const app = angular.module("shopping-cart-app",[]);
-	
 
 app.controller("shopping-cart-ctrl",function($scope, $http){
 	$scope.items = [];
@@ -53,6 +52,7 @@ app.controller("shopping-cart-ctrl",function($scope, $http){
 			.map(item => item.qty * item.price)
 			.reduce((total, qty) => total += qty, 0);
 		},
+	
 		loadFormLocalStorage(){
 			var json = localStorage.getItem("cart");
 			this.items = json ? JSON.parse(json):[];
@@ -68,7 +68,6 @@ app.controller("shopping-cart-ctrl",function($scope, $http){
 		}
 	}
 	$scope.cart.loadFormLocalStorage();
-	
 	$scope.order = {
 		createDate: new Date(),
 		address:"",
@@ -95,7 +94,6 @@ app.controller("shopping-cart-ctrl",function($scope, $http){
 			})
 		}
 	}
-	
 	$scope.pager = {
 		page: 0,
 		size: 10,
@@ -125,7 +123,20 @@ app.controller("shopping-cart-ctrl",function($scope, $http){
 			this.page = this.count - 1;
 		}
 	}
-	
-	
+
+	function carttotal(){
+		var cartItem = document.querySelectorAll("tbody tr")
+		var totalC = 0
+		for (var i=0;i<cartItem.length;i++){
+			var inputValue = cartItem[i].querySelector("input").value
+			var productPrice = cartItem[i].querySelector("span").innerHTML
+			totalA = inputValue*productPrice*1000
+			totalC = totalC + totalA
+			totalD = totalC.toLocaleString('de-DE')
+		}
+		var cartTotalA = document.querySelector(".price-total span")
+		cartTotalA.innerHTML = totalD
+		console.log(cartTotalA)
+	}
 })
 	

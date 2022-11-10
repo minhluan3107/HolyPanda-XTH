@@ -7,35 +7,35 @@
 </head>
 <body>
 	<main th:object="${order}">
-		<div class="panel panel-primary">
+		<div style="padding: 100px" class="panel panel-primary">
 			<div class="panel-heading">
-				ORDER INFORMATION
+				THÔNG TIN ĐƠN HÀNG
 				<div class="panel-body">
 					<div class="row">
 						<div class="form-group col-sm-4">
-							<div>Order Number:</div>
+							<div>Mã đơn hàng:</div>
 							<input th:field="*{id}" class="form-control" readonly>
 						</div>
 						<div class="form-group col-sm-4">
-							<div>Purchase:</div>
+							<div>Tên tài khoản:</div>
 							<input th:field="*{account.username}" class="form-control"
 								readonly>
 						</div>
 						<div class="form-group col-sm-4">
-							<div>Purchased Date:</div>
+							<div>Ngày đặt hàng:</div>
 							<input th:field="*{createDate}" class="form-control" readonly>
 						</div>
 					</div>
 					<div class="row">
 						<div class="form-group col-sm-12">
-							<div>Shopping Address:</div>
+							<div>Địa chỉ giao hàng:</div>
 							<textarea th:field="*{address}" class="form-control" readonly></textarea>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="panel panel-primary">
-				<div class="panel-heading">ORDER LINES</div>
+				<div class="panel-heading">CHI TIẾT ĐƠN HÀNG</div>
 				<table class="table">
 					<thead>
 						<tr>

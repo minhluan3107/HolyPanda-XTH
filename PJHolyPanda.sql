@@ -11,7 +11,6 @@ CREATE TABLE [dbo].[Accounts](
 	[Password] [varchar](50) NOT NULL,
 	[Fullname] [nvarchar](50) NOT NULL,
 	[Email] [varchar](50) NOT NULL,
-	[Photo] [varchar](50) NOT NULL,
  CONSTRAINT [PK_Customers] PRIMARY KEY CLUSTERED 
 (
 	[Username] ASC
@@ -128,19 +127,17 @@ CREATE TABLE [dbo].[Roles](
 ) ON [PRIMARY]
 
 GO
+CREATE TABLE [dbo].[Users](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Email] [varchar](36) NOT NULL,
+	[Password] [varchar](125) NOT NULL,
+	[Fullname] [nvarchar](125) NOT NULL
+)
+select * from Users
 SET ANSI_NULLS ON
 GO
-SET QUOTED_IDENTIFIER ON
-GO
-
-/*** Nhập liệu bảng [Accounts] không nhập ***/
-INSERT [dbo].[Accounts] ([Username], [Password], [Fullname], [Email], [Photo]) VALUES ('luanadmin', 'luan123', N'Phạm Minh Luân', 'luanadmin123@gmail.com', N'luan.png')
-INSERT [dbo].[Accounts] ([Username], [Password], [Fullname], [Email], [Photo]) VALUES ('luan123', 'luan123', N'Phạm Minh Luân US', 'luanus123@gmail.com', N'luanus.png')
-
 /*** Nhập liệu bảng [Authorities] không nhập ***/
 SET IDENTITY_INSERT [dbo].[Authorities] ON
-INSERT [dbo].[Authorities] ([Id], [Username], [RoleId]) VALUES (2,'luanadmin', N'STAF')
-INSERT [dbo].[Authorities] ([Id], [Username], [RoleId]) VALUES (3,'luan123', N'CUST')
 SET IDENTITY_INSERT [dbo].[Authorities] OFF
 
 /*** Nhập liệu bảng [Categories] 10 danh mục ***/
